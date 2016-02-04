@@ -7,40 +7,51 @@
 
 	var routes = {
 		init: function() {
-			if(location.hash){
-				sections.toggle(location.hash);
-			} else {
-				sections.toggle('#start-screen')
-			};
 
-			window.addEventListener("hashchange", function() {
-				sections.toggle(location.hash);
-			})
+			// haschanged event listener
+			// kijkt naar de hash, in de url, als hij die ziet dan voert hij een functie uit
+			window.addEventListener('hashchange', sections.toggle ,false);
+			// also check the page on load voer dan ook een functie uit
+			window.addEventListener('load', sections.toggle ,false);
+
 		}
 	};
 
 	var sections = {
-		toggle: function(route) {
-			var screens = document.querySelectorAll('body > section')
-			for (var i = 0; i < screens.length; i++) {
-				screens[i].style.display = 'none';
-			};
+		toggle: function() {
 
-			var show = document.querySelector(route);
-			show.style.display = '';
+			// Get the hash of the current url after click
+			//  pak de has uit de url en sla op in variable url
+			var url = window.location.hash;
 
-			this.navigation(route);
-		},
-		navigation: function(route) {
-			var ahref = document.querySelectorAll('.menu-button a');
-			for (var i = 0; i < ahref.length; i++) {
-				var hrefValue = ahref[i].getAttribute('href');
-				if (hrefValue == route) {
-					ahref[i].parentElement.classList.add("active-menu-button");
+			// als er een url is pak dan de 
+			if ( url ) {
+
+				//NOTE: Got the templateing idea from Dylan Vens
+
+				// pak uit de html het template dat de url matched 
+				var matchingTemplate = document.querySelector(url);
+
+				// If this templates exists
+				if ( matchingTemplate ) {
+
+					// Get the content from the matching template and use that content in the main html
+					main.innerHTML = matchingTemplate.innerHTML;
+
 				} else {
-					ahref[i].parentElement.classList.remove("active-menu-button");
-				};
-			};
+
+					// If the template doesn't exists: load the error template
+					main.innerHTML = document.querySelector('#error').innerHTML;
+
+				}
+
+			} else {
+				
+				// If the url has no hash(so this is home) -> set the hash to start
+				window.location.hash = '#home';
+
+			} 
+
 		}
 	};
 
