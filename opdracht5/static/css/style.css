@@ -2,15 +2,19 @@
 
 * {
 	box-sizing: border-box;
+	font-family: "Comic Sans MS !important";
+	transform: rotateX(110deg);
+	transform: rotateY(150deg);
+	transform: rotateZ(-2deg);
 }
 
 body {
 	margin:0;
 	padding:0;
-	font-family: 'Roboto';
 	font-weight: normal;
 	background-color: #1C2222;
 	color:white;
+	
 }
 
 h1 {
