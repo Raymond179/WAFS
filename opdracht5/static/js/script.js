@@ -282,3 +282,14 @@
 
 	app.init();
 })();
+
+/* Hoi Raymond:
+
+https://github.com/RaymondKorrel/WAFS/blob/master/opdracht5/static/js/script.js#L66
+Je gebruikt hier een inline style voor het niet laten zien van je inactieve schermen, het is 'best practice' (als ik Joost mag geloven :D)
+om dit te doen met een el.classList.add('no-display') oid.
+
+Zelfde geldt voor 
+https://github.com/RaymondKorrel/WAFS/blob/master/opdracht5/static/js/script.js#90
+
+Verder zou je hier en daar wat indentatie kunnen verbeteren, hij loopt nu nog een klein beetje scheef af ;).
