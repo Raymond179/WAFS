@@ -5,14 +5,14 @@
 	// The application object
 	var app = {
 		init: function() {
-			el.init();
+			element.init();
 			states.init();
 			search.init();
 		}
 	};
 
 	// Object where elements are declared
-	var el = {
+	var element = {
 		init: function() {
 			this.searchScreen = document.getElementById('search');
 			this.watchlistScreen = document.getElementById('watchlist');
@@ -86,10 +86,10 @@
 		},
 		emptyList: function() {
 			// If the list is empty, hide the list. If not, show the list
-			if (el.firstLih1.value) {
-				el.list.style.display = '';
+			if (element.firstLih1.value) {
+				element.list.style.display = '';
 			} else {
-				el.list.style.display = "none";
+				element.list.style.display = "none";
 			}
 		},
 		apiCall: function(search) {
@@ -98,11 +98,11 @@
 				var xhr = new XMLHttpRequest();
 
 				xhr.onloadstart = function() {
-					this.loading('show', el.list);
+					this.loading('show', element.list);
 				}.bind(this)
 
 				xhr.onloadend = function() {
-					this.loading('hide', el.list);
+					this.loading('hide', element.list);
 				}.bind(this)
 
 				// Encode search string as URI
@@ -146,20 +146,20 @@
 		},
 		submit: function() {
 			// Add event listener to submit of the form button
-			el.form.addEventListener("submit", this.getValue.bind(this) )
+			element.form.addEventListener("submit", this.getValue.bind(this) )
 		},
 		loading: function(state, elem) {
 			if (state == 'show') {
 				// Hide the list and show the loading gif
 				elem.style.display = 'none';
-				for (var i = 0; i < el.loading.length; i++) {
-					el.loading[i].style.display = 'block';
+				for (var i = 0; i < element.loading.length; i++) {
+					element.loading[i].style.display = 'block';
 				}
 			} else {
 				// Show the list and hide the loading gif
 				elem.style.display = '';
-				for (var i = 0; i < el.loading.length; i++) {
-					el.loading[i].style.display = 'none';
+				for (var i = 0; i < element.loading.length; i++) {
+					element.loading[i].style.display = 'none';
 				}
 			}
 		},
@@ -167,7 +167,7 @@
 			// Prevent refreshing
 			e.preventDefault();
 			// Get value of the search input
-			var value = el.searchvalue.value;
+			var value = element.searchvalue.value;
 			// Fire  pushToArray
 			this.pushToArray(value);
 		},
@@ -213,7 +213,7 @@
 			};
 
 			// Render
-			Transparency.render(el.list, this.searchResults, directives);
+			Transparency.render(element.list, this.searchResults, directives);
 		}
 	}
 
@@ -224,11 +224,11 @@
 				var xhr = new XMLHttpRequest();
 
 				xhr.onloadstart = function() {
-					search.loading('show', el.detailScreen);
+					search.loading('show', element.detailScreen);
 				}
 
 				xhr.onloadend = function() {
-					search.loading('hide', el.detailScreen);
+					search.loading('hide', element.detailScreen);
 				}
 
 				xhr.open('GET', 'http://www.omdbapi.com/?i='+id+'&r=json&plot=full', true);
@@ -276,7 +276,7 @@
 			};
 
 			// Render
-			Transparency.render(el.detailScreen, this.detailObject, directives);
+			Transparency.render(element.detailScreen, this.detailObject, directives);
 		}
 	}
 
