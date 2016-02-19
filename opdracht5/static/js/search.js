@@ -74,13 +74,15 @@ var search = (function() {
 			// Hide the list and show the loading gif
 			elem.style.display = 'none';
 			for (var i = 0; i < el.loading.length; i++) {
-				el.loading[i].style.display = 'block';
+				el.loading[i].classList.add('show');
+				el.loading[i].classList.remove('hide');
 			}
 		} else {
 			// Show the list and hide the loading gif
 			elem.style.display = '';
 			for (var i = 0; i < el.loading.length; i++) {
-				el.loading[i].style.display = 'none';
+				el.loading[i].classList.add('hide');
+				el.loading[i].classList.remove('show');
 			}
 		}
 	}
@@ -89,8 +91,13 @@ var search = (function() {
 		e.preventDefault();
 		// Get value of the search input
 		var value = el.searchvalue.value;
-		// Fire  pushToArray
-		pushToArray(value);
+
+		if (value.length > 1) {
+			// Fire  pushToArray
+			pushToArray(value);
+		} else {
+			alert('Fill in at least 2 characters');
+		};	
 	}
 	var filter = function() {
 		// Returns an array with all movie titles

@@ -315,3 +315,13 @@ h1 {
     width:17px;
     height: 17px;
 }
+
+/* js classes */
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
