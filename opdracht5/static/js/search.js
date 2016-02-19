@@ -92,6 +92,7 @@ var search = (function() {
 		// Get value of the search input
 		var value = el.searchvalue.value;
 
+		// If value is more than 1 character, pus value to array
 		if (value.length > 1) {
 			// Fire  pushToArray
 			pushToArray(value);
