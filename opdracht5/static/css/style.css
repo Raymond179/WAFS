@@ -4,13 +4,15 @@
 	box-sizing: border-box;
 }
 
-body {
+body, html {
 	margin:0;
 	padding:0;
 	font-family: 'Roboto';
 	font-weight: normal;
 	background-color: #1C2222;
 	color:white;
+	overflow-x: hidden;
+	position: relative;
 }
 
 h1 {
@@ -19,7 +21,7 @@ h1 {
 
 #navigation {
 	width: 100%;
-	height: 40px;
+	height: 70px;
 	color: white;
 }
 
@@ -41,7 +43,7 @@ h1 {
 }
 
 #navigation .menu-button span {
-	padding-top: 10px;
+	padding-top: 34px;
 	display: block;
 }
 
@@ -57,6 +59,26 @@ h1 {
 	margin-top: -2px;
 }
 
+#screens {
+	width: 200%;
+	transition: transform 0.4s;
+	-webkit-transition: -webkit-transform 0.4s;
+}
+
+#screens section {
+	width: 50%;
+	float: left;
+}
+
+.search {
+	
+}
+
+.watchlist {
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+
 /* Search form */
 
 #form {
@@ -69,23 +91,26 @@ h1 {
 
 #form input {
 	width: 64%;
-	height: 30px;
+	height: 40px;
 	outline: none;
 	border: none;
 	border-bottom: 2px solid #3B8686;
 	background: transparent;
 	color: white;
 	margin-right: 4%;
+	border-radius: 0;
+	font-size: 0.9em;
 }
 
 #form button {
 	width: 30%;
-	padding: 10px;
+	padding: 14px;
 	border: none;
 	color: white;
 	outline: none;
 	background-color: #3B8686;
 	font-weight: lighter;
+	font-size: 0.9em;
 }
 
 /* Search list */
@@ -176,41 +201,41 @@ h1 {
 
 /* Detail */
 
-#detail {
+#detail_ {
 	color: white;
 }
 
-#detail h1 {
+#detail_ h1 {
 	font-size: 1.4em;
 }
 
-#detail > .loading {
+#detail_ > .loading {
 	margin-top: 30px;
 }
 
-#detail .detail_movie_info {
+#detail_ .detail_movie_info {
 	float: left;
 	width: 70%;
 	padding: 20px 10px 10px 10px;
 }
 
-#detail .detail_movie_info span {
+#detail_ .detail_movie_info span {
 	margin-top: 4px;
 	display: block;
 }
 
-#detail .detail_img_container {
+#detail_ .detail_img_container {
 	float: left;
 	width: 30%;
 	position: relative;
 	height: 100%;
 }
 
-#detail .detail_img_container img {
+#detail_ .detail_img_container img {
 	width:100%;
 }
 
-#detail .detail_img_container .detail_rating {
+#detail_ .detail_img_container .detail_rating {
 	position: absolute;
     width: 100%;
     height: 16%;
@@ -222,50 +247,50 @@ h1 {
     font-size: 3.5vw;
 }
 
-#detail .detail_description {
+#detail_ .detail_description {
 	clear: both;
 	padding: 20px 20px 5px 20px;
 }
 
-#detail p {
+#detail_ p {
 	padding: 20px 0 5px 0;
 	margin:0;
 }
 
-#detail .actors_title {
+#detail_ .actors_title {
 	font-weight: bold;
 }
 
-#detail .actors {
+#detail_ .actors {
 	padding-top:0;
 	font-size: 0.9em;
 }
 
-#detail > span {
+#detail_ > span {
 	clear: both;
 	font-weight: bold;
 	display: block;
 	padding: 20px 20px 0 20px;
 }
 
-#detail > .actors {
+#detail_ > .actors {
 	font-size: 0.8em;
 	padding-top: 0;
 	clear: both;
 }
 
-#detail > .description {
+#detail_ > .description {
 	margin: 0;
 }
 
 /* Detail checkbox */
 
 
-#detail input[type="checkbox"]{
+#detail_ input[type="checkbox"]{
 	display: none;
 }
 
-#detail label{
+#detail_ label{
 	display: inline-block;
     cursor: pointer;
     position: relative;
@@ -273,14 +298,14 @@ h1 {
     margin-top: 10px;
 }
 
-#detail label:before {
+#detail_ label:before {
     content: "Add to watchlist";
     display: inline-block;
     padding: 8px 10px 8px 10px;
     background-color: #3B8686;
 }
 
-#detail input[type=checkbox]:checked + label:before {
+#detail_ input[type=checkbox]:checked + label:before {
     content: "\2713";
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
     font-size: 15px;
